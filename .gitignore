@@ -139,3 +139,5 @@ tmp/
 
 # local test data
 vpp_data_DELI.json
+
+.idea

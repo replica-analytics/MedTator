@@ -403,7 +403,7 @@ Object.assign(app_hotpot.vpp_methods, {
             [xmlStr], 
             {type: "text/xml;charset=utf-8"}
         );
-        saveAs(blob, ann._filename);
+//        saveAs(blob, ann._filename);
     },
 
     download_converted_results_as_zip: function() {

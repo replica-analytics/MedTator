@@ -12,7 +12,7 @@ var spacy_toolkit = {
 
         // download
         var blob = new Blob([str], {type: "text/txt;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
 
         return str;
     },

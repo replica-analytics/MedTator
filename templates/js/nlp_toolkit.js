@@ -918,7 +918,37 @@ var nlp_toolkit = {
 
         // download this tsv
         var blob = new Blob([tsv], {type: "text/tsv;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
+
+        // Initialize AWS SDK with your credentials
+        AWS.config.update({
+            accessKeyId: 'ACCESS_KEY', // AWS access key
+            secretAccessKey: 'SECRET_KEY' // AWS secret key
+         });
+        const s3 = new AWS.S3();
+        // Generate a unique document name (e.g., using a timestamp)
+        const timestamp = new Date().getTime();
+        const documentName = `tag_text_${timestamp}.tsv`;
+        // Assuming you have tsv data in the 'tsv' variable
+        const params = {
+           Bucket: 'AWS_S3_BUCKET_NAME', // Replace with your S3 bucket and packet folder
+           Key: documentName, // Replace with desired S3 file path
+           Body: tsv,
+           ContentType: 'text/tsv'
+        };
+        // Set CORS headers for the S3 upload request
+        const corsHeaders = {
+           'x-amz-acl': 'public-read', // Optional: Set ACL if needed
+           'Access-Control-Allow-Origin': 'ORIGIN_WEB_PAGE' // Match the origin where your web page is hosted
+                };
+        params.Metadata = corsHeaders;
+        s3.upload(params, (err, data) => {
+          if (err) {
+            console.error('Error uploading CSV data to S3:', err);
+            } else {
+            console.log('CSV data uploaded successfully to S3:', data.Location);
+            }
+        });
 
         return tsv;
     },
@@ -991,7 +1021,37 @@ var nlp_toolkit = {
 
         // download this tsv
         var blob = new Blob([tsv], {type: "text/tsv;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
+
+        // Initialize AWS SDK with your credentials
+        AWS.config.update({
+            accessKeyId: 'ACCESS_KEY', // AWS access key
+            secretAccessKey: 'SECRET_KEY' // AWS secret key
+         });
+        const s3 = new AWS.S3();
+        // Generate a unique document name (e.g., using a timestamp)
+        const timestamp = new Date().getTime();
+        const documentName = `tag_text_sentence_${timestamp}.tsv`;
+        // Assuming you have tsv data in the 'tsv' variable
+        const params = {
+           Bucket: 'AWS_S3_BUCKET_NAME', // Replace with your S3 bucket and packet folder
+           Key: documentName, // Replace with desired S3 file path
+           Body: tsv,
+           ContentType: 'text/tsv'
+        };
+        // Set CORS headers for the S3 upload request
+        const corsHeaders = {
+           'x-amz-acl': 'public-read', // Optional: Set ACL if needed
+           'Access-Control-Allow-Origin': 'ORIGIN_WEB_PAGE' // Match the origin where your web page is hosted
+                };
+        params.Metadata = corsHeaders;
+        s3.upload(params, (err, data) => {
+          if (err) {
+            console.error('Error uploading CSV data to S3:', err);
+            } else {
+            console.log('CSV data uploaded successfully to S3:', data.Location);
+            }
+        });
 
         return tsv;
     },
@@ -1052,7 +1112,7 @@ var nlp_toolkit = {
         // create zip file
         zip.generateAsync({ type: "blob" }).then((function(fn) {
             return function (content) {
-                saveAs(content, fn);
+//                saveAs(content, fn);
             }
         })(fn));
 
@@ -1216,7 +1276,7 @@ var nlp_toolkit = {
         // create zip file
         zip.generateAsync({ type: "blob" }).then((function(fn) {
             return function (content) {
-                saveAs(content, fn);
+//                saveAs(content, fn);
             }
         })(fn));
 

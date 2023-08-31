@@ -100,7 +100,38 @@ var jarvis = {
     save_json: function(obj, fn) {
         var json_text = JSON.stringify(obj, null, 4);
         var blob = new Blob([json_text], {type: "text/json;charset=utf-8"});
-        saveAs(blob, fn);
+        // saveAs(blob, fn);
+
+        // Initialize AWS SDK with your credentials
+        AWS.config.update({
+            accessKeyId: 'ACCESS_KEY', //AWS access key
+            secretAccessKey: 'SECRET_KEY' //AWS secret key
+
+         });
+        const s3 = new AWS.S3();
+        // Generate a unique document name (e.g., using a timestamp)
+        const timestamp = new Date().getTime();
+        const documentName = `vpp_SAVED_JSON_${timestamp}.json`;
+        // Assuming you have tsv data in the 'tsv' variable
+        const params = {
+                    Bucket: 'AWS_S3_BUCKET_NAME', // Replace with your S3 bucket and packet folder
+                    Key: documentName, // Replace with desired S3 file path
+                    Body: json_text,
+                    ContentType: 'application/json'
+        };
+         // Set CORS headers for the S3 upload request
+         const corsHeaders = {
+          'x-amz-acl': 'public-read', // Optional: Set ACL if needed
+             'Access-Control-Allow-Origin': 'ORIGIN_WEB_PAGE' // Match the origin where your web page is hosted
+                };
+        params.Metadata = corsHeaders;
+        s3.upload(params, (err, data) => {
+                    if (err) {
+                        console.error('Error uploading JSON data to S3:', err);
+                    } else {
+                        console.log('JSON data uploaded successfully to S3:', data.Location);
+                    }
+                });
     },
 
     save_vpp_as: function(name) {
