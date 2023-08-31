@@ -223,7 +223,7 @@ var bioc_parser = {
 
         // download
         var blob = new Blob([xmlStr], {type: "text/xml;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
 
         return xmlStr;
      }

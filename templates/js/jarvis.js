@@ -100,7 +100,7 @@ var jarvis = {
     save_json: function(obj, fn) {
         var json_text = JSON.stringify(obj, null, 4);
         var blob = new Blob([json_text], {type: "text/json;charset=utf-8"});
-        saveAs(blob, fn);
+        // saveAs(blob, fn);
     },
 
     save_vpp_as: function(name) {

@@ -210,7 +210,7 @@ Object.assign(app_hotpot.vpp_methods, {
             [text], 
             {type: "text/txt;charset=utf-8"}
         );
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
     },
 
     download_se_dtd_as_json: function(base_dtd) {
@@ -228,7 +228,7 @@ Object.assign(app_hotpot.vpp_methods, {
             [text], 
             {type: "text/txt;charset=utf-8"}
         );
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
     },
 
     download_se_dtd_as_dtd: function(base_dtd) {
@@ -246,7 +246,7 @@ Object.assign(app_hotpot.vpp_methods, {
             [text], 
             {type: "text/txt;charset=utf-8"}
         );
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
 
     },
 

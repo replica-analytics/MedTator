@@ -322,7 +322,7 @@ var erp_toolkit = {
     download_zip: function(zip, fn) {
         zip.generateAsync({ type: "blob" }).then((function(fn){
             return function (content) {
-                saveAs(content, fn);
+//                saveAs(content, fn);
             }
         })(fn));
     },

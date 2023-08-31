@@ -791,7 +791,7 @@ var app_hotpot = {
                 [text], 
                 {type: "text/txt;charset=utf-8"}
             );
-            saveAs(blob, fn);
+//            saveAs(blob, fn);
         },
         
         download_copy_as_xml: function() {
@@ -809,7 +809,7 @@ var app_hotpot = {
 
             // download this csv
             var blob = new Blob([xmlStr], {type: "text/xml;charset=utf-8"});
-            saveAs(blob, fn);
+//            saveAs(blob, fn);
         },
 
         download_copy_as_bioc: function() {

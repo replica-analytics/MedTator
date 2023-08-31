@@ -36,7 +36,7 @@ Object.assign(app_hotpot.vpp_methods, {
         // download this csv
         var blob = new Blob([csv], {type: "text/tsv;charset=utf-8"});
         var fn = this.get_ruleset_base_name() + '-statistics.csv';
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
     },
 
     download_stat_details: function() {

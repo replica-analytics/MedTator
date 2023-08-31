@@ -519,7 +519,7 @@ Object.assign(app_hotpot.vpp_methods, {
         // download this xml
         var blob = new Blob([xml_text], {type: "text/xml;charset=utf-8"});
         var fn = ann_rst.ann._filename;
-        saveAs(blob, fn);            
+        // saveAs(blob, fn);
     },
 
     download_all_gs: function() {
@@ -552,13 +552,13 @@ Object.assign(app_hotpot.vpp_methods, {
 
         // create zip file
         zip.generateAsync({ type: "blob" }).then(function (content) {
-            saveAs(
-                content, 
-                app_hotpot.vpp.get_new_xmls_zipfile_folder_name() + 
-                '-' +
-                app_hotpot.vpp.get_date_now() + 
-                '.zip'
-            );
+//            saveAs(
+//                content,
+//                app_hotpot.vpp.get_new_xmls_zipfile_folder_name() +
+//                '-' +
+//                app_hotpot.vpp.get_date_now() +
+//                '.zip'
+//            );
         });
     },
 
@@ -594,13 +594,13 @@ Object.assign(app_hotpot.vpp_methods, {
 
         // create zip file
         zip.generateAsync({ type: "blob" }).then(function (content) {
-            saveAs(
-                content, 
-                app_hotpot.vpp.get_new_xmls_zipfile_folder_name() + 
-                '-' +
-                app_hotpot.vpp.get_date_now() + 
-                '-ALL.zip'
-            );
+//            saveAs(
+//                content,
+//                app_hotpot.vpp.get_new_xmls_zipfile_folder_name() +
+//                '-' +
+//                app_hotpot.vpp.get_date_now() +
+//                '-ALL.zip'
+//            );
         });
     },
 

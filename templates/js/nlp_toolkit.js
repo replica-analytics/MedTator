@@ -918,7 +918,7 @@ var nlp_toolkit = {
 
         // download this tsv
         var blob = new Blob([tsv], {type: "text/tsv;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
 
         return tsv;
     },
@@ -991,7 +991,7 @@ var nlp_toolkit = {
 
         // download this tsv
         var blob = new Blob([tsv], {type: "text/tsv;charset=utf-8"});
-        saveAs(blob, fn);
+//        saveAs(blob, fn);
 
         return tsv;
     },
@@ -1052,7 +1052,7 @@ var nlp_toolkit = {
         // create zip file
         zip.generateAsync({ type: "blob" }).then((function(fn) {
             return function (content) {
-                saveAs(content, fn);
+//                saveAs(content, fn);
             }
         })(fn));
 
@@ -1216,7 +1216,7 @@ var nlp_toolkit = {
         // create zip file
         zip.generateAsync({ type: "blob" }).then((function(fn) {
             return function (content) {
-                saveAs(content, fn);
+//                saveAs(content, fn);
             }
         })(fn));
 
